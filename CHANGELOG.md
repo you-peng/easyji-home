@@ -18,11 +18,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 联系信息区
 - 深色模式切换
 - 全局配置管理
+- HeroSection 组件
+- AboutSection 组件
+- Footer 组件
+- ContactModal 组件
 
 ### Changed
 - 优化响应式设计
 - 改进动画效果
 - 优化性能
+- 重构页面组件为组件化架构
+- 页面组件通过引用子组件方式实现内容展示
+- AboutPage 页面添加 Footer 组件
+- 联系页面点击弹框显示邮箱/二维码
 
 ## [0.1.0] - 2026-04-23
 

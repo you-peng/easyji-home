@@ -6,6 +6,7 @@
 - [快速开始](#快速开始)
 - [项目结构](#项目结构)
 - [配置管理](#配置管理)
+- [组件说明](#组件说明)
 - [部署](#部署)
 - [协作规范](#协作规范)
 - [贡献](#贡献)
@@ -18,14 +19,16 @@
 
 ### 功能特性
 
-- 响应式设计，适配不同屏幕尺寸
-- 支持亮色/深色模式切换
-- 个人介绍与展示
-- 项目作品展示
-- 文章分享
-- 技能展示
-- 联系方式
-- 社交链接
+- 📱 响应式设计，适配不同屏幕尺寸
+- 🌓 支持亮色/深色模式切换
+- 👤 个人介绍与展示
+- 💻 项目作品展示
+- 📝 文章分享
+- 🛠️ 技能展示
+- 📧 联系方式（邮件、微信、QQ）
+- 🔗 社交链接
+- 🎨 现代化 UI 设计
+- ⚡ 快速加载
 
 ### 技术栈
 
@@ -34,6 +37,7 @@
 - **路由管理**：Vue Router 4
 - **样式框架**：Tailwind CSS 3
 - **状态管理**：Vue 3 的 provide/inject API
+- **图标服务**：Simple Icons
 
 ## 快速开始
 
@@ -96,44 +100,122 @@ yarn serve
 - 开发环境：修改 `.env.development` 文件中的 `VITE_PORT` 值
 - 生产环境：修改 `.env.production` 文件中的 `VITE_PORT` 值
 
+### 一键发布
+
+```bash
+# 交互式发布
+yarn release
+```
+
 ## 项目结构
 
 ```
 ├── public/             # 静态资源
+│   ├── favicon.ico      # 网站图标
+│   └── qrcode/       # 二维码图片（微信、QQ等
 ├── src/                # 源代码
 │   ├── assets/         # 资源文件
-│   ├── components/     # 组件
-│   │   └── Navbar.vue  # 导航栏组件
-│   ├── views/          # 页面组件
-│   │   ├── Home.vue    # 首页
-│   │   ├── About.vue   # 关于页
-│   │   ├── Social.vue  # 社交页
-│   │   ├── Projects.vue # 项目页
-│   │   ├── Articles.vue # 文章页
-│   │   ├── Skills.vue  # 技能页
-│   │   └── Contact.vue # 联系页
-│   ├── router/         # 路由配置
+│   ├── components/      # 组件
+│   │   ├── Navbar.vue       # 导航栏组件
+│   │   ├── HeroSection.vue  # 首页英雄区域组件
+│   │   ├── Social.vue       # 社交链接组件
+│   │   ├── Projects.vue     # 项目展示组件
+│   │   ├── Articles.vue     # 文章列表组件
+│   │   ├── Skills.vue       # 技能展示组件
+│   │   ├── Contact.vue      # 联系方式组件
+│   │   ├── ContactModal.vue # 联系弹框组件
+│   │   ├── AboutSection.vue # 关于页面内容组件
+│   │   └── Footer.vue       # 页脚组件
+│   ├── views/           # 页面组件
+│   │   ├── HomePage.vue     # 首页
+│   │   └── AboutPage.vue    # 关于页面
+│   ├── router/          # 路由配置
 │   │   └── index.js    # 路由定义
 │   ├── main.js         # 应用入口
 │   ├── main.config.js  # 全局配置
 │   └── style.css       # 全局样式
 ├── package.json        # 项目配置
 └── vite.config.js      # Vite 配置
+├── tailwind.config.js  # Tailwind CSS 配置
+├── postcss.config.js   # PostCSS 配置
+└── README.md          # 项目文档
 ```
 
 ## 配置管理
 
 项目的全局配置和静态数据存储在 `src/main.config.js` 文件中，包括：
 
-- 站点配置（名称、标题、副标题）
-- 导航配置
-- 社交链接
-- 项目数据
-- 文章数据
-- 技能数据
-- 关于信息
+### 0. 导航配置
+- `navConfig`：导航栏导航链接配置
+
+### 1. 网站配置
+- `siteConfig`：站点基本信息（名称、标题、副标题、头像等
+
+### 2. 社交配置
+- `social`：社交页面配置
+- `socialLinks`：社交链接列表
+
+### 3. 项目配置
+- `projectsPage`：项目页面配置
+- `projects`：项目列表
+
+### 4. 文章配置
+- `articlesPage`：文章页面配置
+- `articles`：文章列表
+
+### 5. 技能配置
+- `skills`：技能页面配置
+- `skillCategories`：技能分类
+
+### 6. 联系我配置
+- `contact`：联系页面配置
+- `contact.methods`：联系方式（邮件、微信、QQ）
+- `contact.wechatQrCode`：微信二维码路径
+- `contact.qqQrCode`：QQ二维码路径
+
+### 7. 关于我配置
+- `aboutMe`：关于页面配置
+
+### 8. 首页配置
+- `homePage`：首页配置
+
+## 组件说明
+
+### 页面组件
+
+| 组件名 | 说明 | 路径 |
+|--------|------|------|
+| HomePage | 首页 | `src/views/HomePage.vue` | 首页，包含所有功能模块的完整页面 |
+| AboutPage | 关于页 | `src/views/AboutPage.vue` | 个人介绍页面 |
+
+### 功能组件
+
+| 组件名 | 说明 | 路径 |
+|--------|------|------|
+| Navbar | 导航栏 | `src/components/Navbar.vue` | 顶部导航栏，支持深色/浅色模式切换 |
+| HeroSection | 首页英雄区域 | `src/components/HeroSection.vue` | 首页的头部展示 |
+| Social | 社交链接 | `src/components/Social.vue` | 展示社交平台链接卡片 |
+| Projects | 项目展示 | `src/components/Projects.vue` | 展示个人项目作品 |
+| Articles | 文章列表 | `src/components/Articles.vue` | 展示文章列表 |
+| Skills | 技能展示 | `src/components/Skills.vue` | 展示技能卡片 |
+| Contact | 联系方式 | `src/components/Contact.vue` | 展示联系方式，点击弹框 |
+| ContactModal | 联系弹框 | `src/components/ContactModal.vue` | 弹窗展示邮件/二维码 |
+| AboutSection | 关于页面内容 | `src/components/AboutSection.vue` | 关于页面 |
+| Footer | 页脚 | `src/components/Footer.vue` | 网站底部版权信息 |
 
 ## 部署
+
+### 静态资源说明
+
+所有静态资源（包括二维码图片）需要放置在 `public/` 目录下才能被正确访问：
+
+```
+public/
+├── favicon.ico
+└── qrcode/
+    ├── wechat.png   # 微信二维码
+    └── qq.png      # QQ二维码
+```
 
 ### 静态网站部署
 
@@ -199,31 +281,10 @@ yarn serve
 
 本项目采用 MIT 许可证。
 
-## 一键发布
-
-### 使用方法
-
-```bash
-# 交互式发布（推荐）
-yarn release
-
-# 或者手动指定版本号
-yarn tag v1.0.0
-
-# 推送所有标签
-yarn push-tag
-```
-
-### 功能说明
-
-- 交互式输入版本号和 Release 说明
-- 自动创建 Git Tag
-- 推送到 Gitee 远程仓库
-- 生成 RELEASE.md 文件
-
 ## 联系方式
 
 如有问题或建议，请通过以下方式联系：
 
-- 邮件：example@example.com
-- GitHub：https://github.com
+- 邮件：1871670089@qq.com
+- GitHub：https://github.com/you-peng
+- Gitee：https://gitee.com/you-peng
