@@ -29,9 +29,9 @@
         </article>
       </div>
       <div class="mt-8 text-center">
-        <a :href="articlesPage.viewAllUrl" :class="secondaryButtonClasses" class="inline-flex items-center px-6 py-3 font-bold rounded-2xl shadow-sm hover:shadow-md border-2 transition-all duration-300 transform hover:-translate-y-1">
+        <router-link :to="articlesPage.viewAllUrl" :class="secondaryButtonClasses" class="inline-flex items-center px-6 py-3 font-bold rounded-2xl shadow-sm hover:shadow-md border-2 transition-all duration-300 transform hover:-translate-y-1">
           {{ articlesPage.viewAllText }}
-        </a>
+        </router-link>
       </div>
     </div>
   </section>

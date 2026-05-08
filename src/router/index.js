@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { navConfig } from '../main.config.js'
 
 const routes = navConfig.map(item => ({
@@ -8,7 +8,7 @@ const routes = navConfig.map(item => ({
 }))
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 

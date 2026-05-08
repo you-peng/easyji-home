@@ -17,17 +17,29 @@
             {{ homePage.introText }}
           </p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-            <a v-for="(button, index) in homeButtons" :key="index"
-               :href="button.path || button.url"
-               :target="button.url ? '_blank' : '_self'"
-               :class="button.type === 'primary'
-                 ? 'group inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 transform hover:-translate-y-1 transition-all duration-300'
-                 : 'inline-flex items-center justify-center px-7 py-3.5 font-bold rounded-2xl border-2 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300 ' + secondaryButtonClasses">
-              {{ button.text }}
-              <svg v-if="button.type === 'primary'" class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-              </svg>
-            </a>
+            <template v-for="(button, index) in homeButtons" :key="index">
+              <router-link v-if="button.path"
+                :to="button.path"
+                :class="button.type === 'primary'
+                  ? 'group inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 transform hover:-translate-y-1 transition-all duration-300'
+                  : 'inline-flex items-center justify-center px-7 py-3.5 font-bold rounded-2xl border-2 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300 ' + secondaryButtonClasses">
+                {{ button.text }}
+                <svg v-if="button.type === 'primary'" class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </router-link>
+              <a v-else
+                :href="button.url"
+                target="_blank"
+                :class="button.type === 'primary'
+                  ? 'group inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 transform hover:-translate-y-1 transition-all duration-300'
+                  : 'inline-flex items-center justify-center px-7 py-3.5 font-bold rounded-2xl border-2 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300 ' + secondaryButtonClasses">
+                {{ button.text }}
+                <svg v-if="button.type === 'primary'" class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+            </template>
           </div>
         </div>
         <div class="flex-shrink-0 flex justify-center lg:justify-end">
