@@ -112,7 +112,7 @@ yarn release
 ```
 ├── public/             # 静态资源
 │   ├── favicon.ico      # 网站图标
-│   └── qrcode/       # 二维码图片（微信、QQ等
+│   └── qrcode/          # 二维码图片（微信、QQ等）
 ├── src/                # 源代码
 │   ├── assets/         # 资源文件
 │   ├── components/      # 组件
@@ -130,15 +130,20 @@ yarn release
 │   │   ├── HomePage.vue     # 首页
 │   │   └── AboutPage.vue    # 关于页面
 │   ├── router/          # 路由配置
-│   │   └── index.js    # 路由定义
+│   │   └── index.js         # 路由定义
 │   ├── main.js         # 应用入口
 │   ├── main.config.js  # 全局配置
 │   └── style.css       # 全局样式
+├── .env                # 环境变量
+├── .env.development    # 开发环境配置
+├── .env.production     # 生产环境配置
 ├── package.json        # 项目配置
-└── vite.config.js      # Vite 配置
+├── vite.config.js      # Vite 配置
 ├── tailwind.config.js  # Tailwind CSS 配置
 ├── postcss.config.js   # PostCSS 配置
-└── README.md          # 项目文档
+├── Dockerfile          # Docker 构建配置
+├── nginx.conf          # Nginx 配置
+└── README.md           # 项目文档
 ```
 
 ## 配置管理
@@ -227,13 +232,61 @@ public/
    - 阿里云 OSS
    - 腾讯云 COS
 
-### 服务器部署
+### Docker 一键部署
+
+```bash
+# 进入项目目录
+cd easyji-home
+
+# 构建镜像
+docker build -t my-website .
+
+# 停止并移除旧容器（如果存在）
+docker stop website 2>/dev/null || true
+docker rm website 2>/dev/null || true
+
+# 启动新容器
+docker run -d -p 80:80 --name website my-website
+
+# 查看运行状态
+echo "部署完成！访问 http://localhost"
+docker ps
+```
+
+**说明**：
+- 端口：默认映射 80 端口
+- 持久化：如需持久化配置，可挂载目录
+- 重启策略：如需自动重启，添加 `--restart always`
+
+### 传统服务器部署
 
 如果需要在自己的服务器上部署，可以使用以下步骤：
 
 1. 构建生产版本：`npm run build`
 2. 将 `dist` 目录复制到服务器
-3. 使用 Nginx 或 Apache 配置静态网站服务
+3. 使用 Nginx 配置静态网站服务
+
+**Nginx 配置示例**：
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+    root /path/to/dist;
+    index index.html;
+
+    # Hash 模式路由支持
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 静态资源缓存
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+}
+```
 
 ## 协作规范
 
