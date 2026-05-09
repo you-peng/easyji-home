@@ -58,7 +58,7 @@ export const projectsPage = {
   pageSubtitle: '探索我最近完成的一些作品',
   viewAllText: '查看全部仓库',
   viewAllUrl: 'https://gitee.com/you-peng',
-  defaultEmoji: '💻',
+  defaultIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',
   defaultTag: 'Public',
   defaultTagText: 'Code',
   defaultStars: 0
@@ -66,10 +66,10 @@ export const projectsPage = {
 
 //3.1.项目列表
 export const projects = [
-  { name: '个人主页网站 - EaseJi', description: '易继｜EaseJii 极简个人主页，轻量简约布局，自带柔和交互微动效，响应式自适应，个人展示专属站点。', tags: ['Vue', 'JS', 'Tailwind', 'CSS', 'HTML'], projecturl: 'https://gitee.com/you-peng/easyji-home', image: 'https://test.fukit.cn/autoupload/f/SLNLFkWgg1dGXklhAeLZbdiO_OyvX7mIgxFBfDMDErs/20260427/8UTw/1894X986/00homepage.png' },
-  { name: '项目二', description: '一个全栈应用，包含前端和后端的完整解决方案。', tags: ['Node.js', 'React', 'MongoDB'], projecturl: 'https://gitee.com/', image: '' },
-  { name: '项目三', description: '移动应用开发，支持 iOS 和 Android 双平台。', tags: ['React Native', 'TypeScript'], projecturl: 'https://gitee.com/', image: '' },
-  { name: '项目四', description: '机器学习项目，探索 AI 和数据科学相关的实验。', tags: ['Python', 'TensorFlow', '机器学习'], projecturl: 'https://gitee.com/', image: '' }
+  { name: 'EaseJi 个人主页', description: '极简个人主页网站，采用 Vue 3 + Tailwind CSS 构建，支持深色/浅色主题切换，包含响应式布局和流畅的微交互动效。', tags: ['Vue 3', 'Tailwind', 'Vite', 'CSS'], projecturl: 'https://gitee.com/you-peng/easyji-home', image: 'https://test.fukit.cn/autoupload/f/SLNLFkWgg1dGXklhAeLZbdiO_OyvX7mIgxFBfDMDErs/20260427/8UTw/1894X986/00homepage.png', stars: 0 },
+  { name: 'FastAPI 后端模板', description: '基于 FastAPI 的快速开发模板，集成 SQLAlchemy、JWT 认证、Redis 缓存和异步任务队列。', tags: ['Python', 'FastAPI', 'SQLAlchemy', 'Redis'], projecturl: 'https://gitee.com/you-peng/fastapi-template', image: '', stars: 0 },
+  { name: '数据可视化仪表盘', description: '企业级数据可视化解决方案，支持多维度数据分析和实时图表展示。', tags: ['React', 'D3.js', 'TypeScript'], projecturl: 'https://gitee.com/you-peng/data-dashboard', image: '', stars: 0 },
+  { name: '自动化部署工具', description: '基于 Docker 的自动化部署脚本，支持一键部署、滚动更新和蓝绿发布。', tags: ['Docker', 'CI/CD', 'Shell'], projecturl: 'https://gitee.com/you-peng/auto-deploy', image: '', stars: 0 }
 ]
 
 // 4.文章配置
@@ -79,15 +79,15 @@ export const articlesPage = {
   readMoreText: '跳转阅读全文',
   viewAllText: '查看所有文章',
   viewAllUrl: '/articles',
-  defaultIcon: '📝'
+  defaultIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>'
 }
 
 // 4.1.文章列表
 export const articles = [
-  { id: 1, title: 'Vue 3 组合式 API 入门指南', category: '技术', excerpt: '本文介绍 Vue 3 新特性，包括 setup、ref、reactive 等核心概念。', url: 'https://example.com/vue3-guide' },
-  { id: 2, title: 'Tailwind CSS 最佳实践', category: '前端', excerpt: '分享一些使用 Tailwind CSS 的实用技巧和最佳实践。', url: 'https://example.com/tailwind-best-practices' },
-  { id: 3, title: '我的编程学习之路', category: '随笔', excerpt: '回顾自己的编程学习历程，希望能给初学者一些启发。', url: 'https://example.com/my-learning-path' },
-  { id: 4, title: '前端性能优化技巧', category: '技术', excerpt: '一些实用的前端性能优化方法和工具推荐。', url: 'https://example.com/frontend-optimization' }
+  { id: 1, title: 'Vue 3 Composition API 深度解析', category: '技术', excerpt: '深入探讨 Vue 3 组合式 API 的设计理念，包括 ref、reactive、computed 的底层实现原理和最佳使用场景。', url: 'https://gitee.com/you-peng' },
+  { id: 2, title: 'FastAPI 异步编程实战', category: '后端', excerpt: '从入门到精通，掌握 FastAPI 的异步特性，构建高性能 RESTful API 服务。', url: 'https://gitee.com/you-peng' },
+  { id: 3, title: 'Docker 容器化部署实践', category: '运维', excerpt: '从零开始学习 Docker，包括镜像构建、容器编排和多容器应用部署。', url: 'https://gitee.com/you-peng' },
+  { id: 4, title: 'Git 工作流最佳实践', category: '工具', excerpt: '分享团队协作中常用的 Git 工作流模式，包括 Git Flow、GitHub Flow 的选择与应用。', url: 'https://gitee.com/you-peng' }
 ]
 
 // 5.技能配置
@@ -96,11 +96,11 @@ export const skills = {
   pageSubtitle: '我的技术栈与工具集',
   skillIcons: {
     'Python': 'https://cdn.simpleicons.org/python/005799',
-    'Java': 'https://cdn.simpleicons.org/openjdk/cg4bed',
+    'Java': 'https://cdn.simpleicons.org/openjdk/ED8B00',
     'Docker': 'https://cdn.simpleicons.org/docker/2496ED',
     'Git': 'https://cdn.simpleicons.org/git/F05032'
   },
-  defaultIcon: '💡'
+  defaultIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 12 22 21 10 12 10 12 2"/></svg>'
 }
 
 // 5.1.技能分类
@@ -142,9 +142,9 @@ export const aboutMe = {
   pageSubtitle: '我的背景与经历',
   avatar: 'https://foruda.gitee.com/avatar/1776943058021188497/8133883_you-peng_1776943057.png!avatar100',
   features: [
-    { title: '全平台开发', description: '适配桌面和移动端', icon: '📱' },
-    { title: '高效开发', description: '使用现代技术栈', icon: '🚀' },
-    { title: '创新思维', description: '探索有趣的解决方案', icon: '💡' }
+    { title: '全平台开发', description: '适配桌面和移动端', icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="15" height="14" rx="2"/><path d="M17 8h6"/><path d="M17 12h6"/><path d="M17 16h6"/><path d="M21 18V7a2 2 0 0 0-2-2H3"/></svg>' },
+    { title: '高效开发', description: '使用现代技术栈', icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15a3 3 0 0 0 0-6H6a3 3 0 0 0 0 6h12z"/><path d="M18 9v-3a3 3 0 0 0-5.12-2.34L6 9"/><path d="M18 15v3a3 3 0 0 1-5.12 2.34L6 15"/></svg>' },
+    { title: '创新思维', description: '探索有趣的解决方案', icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 12 22 21 10 12 10 12 2"/></svg>' }
   ],
   backButton: '回到首页'
 }
@@ -153,7 +153,19 @@ export const aboutMe = {
 export const homePage = {
   welcomeText: '欢迎来到我的个人网站',
   introText: 'If I never see you again, good morning, good afternoon and good night.',
+  stats: {
+    projects: 1,
+    articles: 2,
+    stars: 0
+  },
   footer: {
-    copyright: '© 2026 {siteConfig.name}. All rights reserved.'
+    copyright: '© 2026 EaseJi. All rights reserved.'
   }
 }
+
+// 9.页脚配置
+export const footerLinks = [
+  { name: 'GitHub', url: 'https://github.com/you-peng' },
+  { name: 'Gitee', url: 'https://gitee.com/you-peng' },
+  { name: '微博', url: 'https://weibo.com/u/6085616680' }
+]
